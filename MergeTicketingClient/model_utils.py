@@ -113,12 +113,12 @@ class OpenApiModel(object):
 
         if name in self.openapi_types:
             required_types_mixed = self.openapi_types[name]
-        elif self.additional_properties_type is None:
+        """elif self.additional_properties_type is None:
             raise ApiAttributeError(
                 "{0} has no attribute '{1}'".format(
                     type(self).__name__, name),
                 path_to_item
-            )
+            )"""
         elif self.additional_properties_type is not None:
             required_types_mixed = self.additional_properties_type
 
@@ -136,10 +136,10 @@ class OpenApiModel(object):
                 key_type=True
             )
 
-        if self._check_type:
+        """if self._check_type:
             value = validate_and_convert_types(
                 value, required_types_mixed, path_to_item, self._spec_property_naming,
-                self._check_type, configuration=self._configuration)
+                self._check_type, configuration=self._configuration)"""
         if (name,) in self.allowed_values:
             check_allowed_values(
                 self.allowed_values,
