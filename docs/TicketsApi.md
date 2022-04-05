@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 
-Returns an `User` object with the given `id`.
+Returns a `User` object with the given `id`.
 
 ### Example
 
@@ -50,8 +50,8 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     api_instance = tickets_api.TicketsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    cursor = 1 # int | The pagination cursor value. (optional)
-    expand = "teams,role" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
+    expand = "teams" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "teams"
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
 
@@ -78,8 +78,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
- **cursor** | **int**| The pagination cursor value. | [optional]
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "teams"
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
 
@@ -154,6 +154,8 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
             project="fb8c55b6-1cb8-4b4c-9fb6-17924231619d",
             ticket_type="incident",
             account="0958cbc6-6040-430a-848e-aafacbadf4ae",
+            contact="65c345ba-6870-4974-87ba-dd31509c367a",
+            parent_ticket="75b33d04-30d2-4f3e-be45-27838bc94342",
             attachments=["42747df1-95e7-46e2-93cc-66f1191edca5","92f972d0-2526-434b-9409-4c3b468e08f0"],
             tags=["enterprise","other-tag"],
             remote_created_at=dateutil_parser('1990-11-10T00:00:00Z'),
@@ -252,7 +254,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    expand = "attachments,assignees,project,account" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "attachments,assignees,project,account,contact,parent_ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -431,7 +433,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     api_instance = tickets_api.TicketsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    expand = "attachments,assignees,project,account" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "attachments,assignees,project,account,contact,parent_ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set

@@ -1,19 +1,19 @@
-# MergeTicketingClient.RolesApi
+# MergeTicketingClient.ContactsApi
 
 All URIs are relative to *https://api.merge.dev/api/ticketing/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**roles_list**](RolesApi.md#roles_list) | **GET** /roles | 
-[**roles_retrieve**](RolesApi.md#roles_retrieve) | **GET** /roles/{id} | 
+[**contacts_list**](ContactsApi.md#contacts_list) | **GET** /contacts | 
+[**contacts_retrieve**](ContactsApi.md#contacts_retrieve) | **GET** /contacts/{id} | 
 
 
-# **roles_list**
-> PaginatedRoleList roles_list(x_account_token)
+# **contacts_list**
+> PaginatedContactList contacts_list(x_account_token)
 
 
 
-Returns a list of `Role` objects.
+Returns a list of `TicketingContact` objects.
 
 ### Example
 
@@ -21,8 +21,8 @@ Returns a list of `Role` objects.
 ```python
 import time
 import MergeTicketingClient
-from MergeTicketingClient.api import roles_api
-from MergeTicketingClient.model.paginated_role_list import PaginatedRoleList
+from MergeTicketingClient.api import contacts_api
+from MergeTicketingClient.model.paginated_contact_list import PaginatedContactList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ticketing/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -44,11 +44,12 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeTicketingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
+    api_instance = contacts_api.ContactsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
+    expand = "account" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "account"
     include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -58,18 +59,18 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.roles_list(x_account_token)
+        api_response = api_instance.contacts_list(x_account_token)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
-        print("Exception when calling RolesApi->roles_list: %s\n" % e)
+        print("Exception when calling ContactsApi->contacts_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.roles_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.contacts_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
-        print("Exception when calling RolesApi->roles_list: %s\n" % e)
+        print("Exception when calling ContactsApi->contacts_list: %s\n" % e)
 ```
 
 
@@ -81,6 +82,7 @@ Name | Type | Description  | Notes
  **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "account"
  **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
@@ -90,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedRoleList**](PaginatedRoleList.md)
+[**PaginatedContactList**](PaginatedContactList.md)
 
 ### Authorization
 
@@ -109,12 +111,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **roles_retrieve**
-> Role roles_retrieve(x_account_token, id)
+# **contacts_retrieve**
+> Contact contacts_retrieve(x_account_token, id)
 
 
 
-Returns a `Role` object with the given `id`.
+Returns a `TicketingContact` object with the given `id`.
 
 ### Example
 
@@ -122,8 +124,8 @@ Returns a `Role` object with the given `id`.
 ```python
 import time
 import MergeTicketingClient
-from MergeTicketingClient.api import roles_api
-from MergeTicketingClient.model.role import Role
+from MergeTicketingClient.api import contacts_api
+from MergeTicketingClient.model.contact import Contact
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ticketing/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,25 +147,26 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeTicketingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
+    api_instance = contacts_api.ContactsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
+    expand = "account" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "account"
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.roles_retrieve(x_account_token, id)
+        api_response = api_instance.contacts_retrieve(x_account_token, id)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
-        print("Exception when calling RolesApi->roles_retrieve: %s\n" % e)
+        print("Exception when calling ContactsApi->contacts_retrieve: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.roles_retrieve(x_account_token, id, include_remote_data=include_remote_data)
+        api_response = api_instance.contacts_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
-        print("Exception when calling RolesApi->roles_retrieve: %s\n" % e)
+        print("Exception when calling ContactsApi->contacts_retrieve: %s\n" % e)
 ```
 
 
@@ -173,11 +176,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "account"
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type
 
-[**Role**](Role.md)
+[**Contact**](Contact.md)
 
 ### Authorization
 

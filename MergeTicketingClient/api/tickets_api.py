@@ -50,7 +50,7 @@ class TicketsApi(object):
         ):
             """tickets_collaborators_list  # noqa: E501
 
-            Returns an `User` object with the given `id`.  # noqa: E501
+            Returns a `User` object with the given `id`.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -62,8 +62,8 @@ class TicketsApi(object):
                 id (str):
 
             Keyword Args:
-                cursor (int): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "teams"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 _return_http_data_only (bool): response data without head status
@@ -154,9 +154,7 @@ class TicketsApi(object):
                 'allowed_values': {
                     ('expand',): {
 
-                        "ROLE": "role",
-                        "TEAMS": "teams",
-                        "TEAMS,ROLE": "teams,role"
+                        "TEAMS": "teams"
                     },
                 },
                 'openapi_types': {
@@ -165,7 +163,7 @@ class TicketsApi(object):
                     'id':
                         (str,),
                     'cursor':
-                        (int,),
+                        (str,),
                     'expand':
                         (str,),
                     'include_remote_data':
@@ -470,20 +468,68 @@ class TicketsApi(object):
                     ('expand',): {
 
                         "ACCOUNT": "account",
+                        "ACCOUNT,CONTACT": "account,contact",
+                        "ACCOUNT,CONTACT,PARENT_TICKET": "account,contact,parent_ticket",
+                        "ACCOUNT,PARENT_TICKET": "account,parent_ticket",
                         "ASSIGNEES": "assignees",
                         "ASSIGNEES,ACCOUNT": "assignees,account",
+                        "ASSIGNEES,ACCOUNT,CONTACT": "assignees,account,contact",
+                        "ASSIGNEES,ACCOUNT,CONTACT,PARENT_TICKET": "assignees,account,contact,parent_ticket",
+                        "ASSIGNEES,ACCOUNT,PARENT_TICKET": "assignees,account,parent_ticket",
+                        "ASSIGNEES,CONTACT": "assignees,contact",
+                        "ASSIGNEES,CONTACT,PARENT_TICKET": "assignees,contact,parent_ticket",
+                        "ASSIGNEES,PARENT_TICKET": "assignees,parent_ticket",
                         "ASSIGNEES,PROJECT": "assignees,project",
                         "ASSIGNEES,PROJECT,ACCOUNT": "assignees,project,account",
+                        "ASSIGNEES,PROJECT,ACCOUNT,CONTACT": "assignees,project,account,contact",
+                        "ASSIGNEES,PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "assignees,project,account,contact,parent_ticket",
+                        "ASSIGNEES,PROJECT,ACCOUNT,PARENT_TICKET": "assignees,project,account,parent_ticket",
+                        "ASSIGNEES,PROJECT,CONTACT": "assignees,project,contact",
+                        "ASSIGNEES,PROJECT,CONTACT,PARENT_TICKET": "assignees,project,contact,parent_ticket",
+                        "ASSIGNEES,PROJECT,PARENT_TICKET": "assignees,project,parent_ticket",
                         "ATTACHMENTS": "attachments",
                         "ATTACHMENTS,ACCOUNT": "attachments,account",
+                        "ATTACHMENTS,ACCOUNT,CONTACT": "attachments,account,contact",
+                        "ATTACHMENTS,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,account,contact,parent_ticket",
+                        "ATTACHMENTS,ACCOUNT,PARENT_TICKET": "attachments,account,parent_ticket",
                         "ATTACHMENTS,ASSIGNEES": "attachments,assignees",
                         "ATTACHMENTS,ASSIGNEES,ACCOUNT": "attachments,assignees,account",
+                        "ATTACHMENTS,ASSIGNEES,ACCOUNT,CONTACT": "attachments,assignees,account,contact",
+                        "ATTACHMENTS,ASSIGNEES,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,assignees,account,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,ACCOUNT,PARENT_TICKET": "attachments,assignees,account,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,CONTACT": "attachments,assignees,contact",
+                        "ATTACHMENTS,ASSIGNEES,CONTACT,PARENT_TICKET": "attachments,assignees,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PARENT_TICKET": "attachments,assignees,parent_ticket",
                         "ATTACHMENTS,ASSIGNEES,PROJECT": "attachments,assignees,project",
                         "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT": "attachments,assignees,project,account",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT,CONTACT": "attachments,assignees,project,account,contact",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,assignees,project,account,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT,PARENT_TICKET": "attachments,assignees,project,account,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,CONTACT": "attachments,assignees,project,contact",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,CONTACT,PARENT_TICKET": "attachments,assignees,project,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,PARENT_TICKET": "attachments,assignees,project,parent_ticket",
+                        "ATTACHMENTS,CONTACT": "attachments,contact",
+                        "ATTACHMENTS,CONTACT,PARENT_TICKET": "attachments,contact,parent_ticket",
+                        "ATTACHMENTS,PARENT_TICKET": "attachments,parent_ticket",
                         "ATTACHMENTS,PROJECT": "attachments,project",
                         "ATTACHMENTS,PROJECT,ACCOUNT": "attachments,project,account",
+                        "ATTACHMENTS,PROJECT,ACCOUNT,CONTACT": "attachments,project,account,contact",
+                        "ATTACHMENTS,PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,project,account,contact,parent_ticket",
+                        "ATTACHMENTS,PROJECT,ACCOUNT,PARENT_TICKET": "attachments,project,account,parent_ticket",
+                        "ATTACHMENTS,PROJECT,CONTACT": "attachments,project,contact",
+                        "ATTACHMENTS,PROJECT,CONTACT,PARENT_TICKET": "attachments,project,contact,parent_ticket",
+                        "ATTACHMENTS,PROJECT,PARENT_TICKET": "attachments,project,parent_ticket",
+                        "CONTACT": "contact",
+                        "CONTACT,PARENT_TICKET": "contact,parent_ticket",
+                        "PARENT_TICKET": "parent_ticket",
                         "PROJECT": "project",
-                        "PROJECT,ACCOUNT": "project,account"
+                        "PROJECT,ACCOUNT": "project,account",
+                        "PROJECT,ACCOUNT,CONTACT": "project,account,contact",
+                        "PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "project,account,contact,parent_ticket",
+                        "PROJECT,ACCOUNT,PARENT_TICKET": "project,account,parent_ticket",
+                        "PROJECT,CONTACT": "project,contact",
+                        "PROJECT,CONTACT,PARENT_TICKET": "project,contact,parent_ticket",
+                        "PROJECT,PARENT_TICKET": "project,parent_ticket"
                     },
                 },
                 'openapi_types': {
@@ -785,20 +831,68 @@ class TicketsApi(object):
                     ('expand',): {
 
                         "ACCOUNT": "account",
+                        "ACCOUNT,CONTACT": "account,contact",
+                        "ACCOUNT,CONTACT,PARENT_TICKET": "account,contact,parent_ticket",
+                        "ACCOUNT,PARENT_TICKET": "account,parent_ticket",
                         "ASSIGNEES": "assignees",
                         "ASSIGNEES,ACCOUNT": "assignees,account",
+                        "ASSIGNEES,ACCOUNT,CONTACT": "assignees,account,contact",
+                        "ASSIGNEES,ACCOUNT,CONTACT,PARENT_TICKET": "assignees,account,contact,parent_ticket",
+                        "ASSIGNEES,ACCOUNT,PARENT_TICKET": "assignees,account,parent_ticket",
+                        "ASSIGNEES,CONTACT": "assignees,contact",
+                        "ASSIGNEES,CONTACT,PARENT_TICKET": "assignees,contact,parent_ticket",
+                        "ASSIGNEES,PARENT_TICKET": "assignees,parent_ticket",
                         "ASSIGNEES,PROJECT": "assignees,project",
                         "ASSIGNEES,PROJECT,ACCOUNT": "assignees,project,account",
+                        "ASSIGNEES,PROJECT,ACCOUNT,CONTACT": "assignees,project,account,contact",
+                        "ASSIGNEES,PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "assignees,project,account,contact,parent_ticket",
+                        "ASSIGNEES,PROJECT,ACCOUNT,PARENT_TICKET": "assignees,project,account,parent_ticket",
+                        "ASSIGNEES,PROJECT,CONTACT": "assignees,project,contact",
+                        "ASSIGNEES,PROJECT,CONTACT,PARENT_TICKET": "assignees,project,contact,parent_ticket",
+                        "ASSIGNEES,PROJECT,PARENT_TICKET": "assignees,project,parent_ticket",
                         "ATTACHMENTS": "attachments",
                         "ATTACHMENTS,ACCOUNT": "attachments,account",
+                        "ATTACHMENTS,ACCOUNT,CONTACT": "attachments,account,contact",
+                        "ATTACHMENTS,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,account,contact,parent_ticket",
+                        "ATTACHMENTS,ACCOUNT,PARENT_TICKET": "attachments,account,parent_ticket",
                         "ATTACHMENTS,ASSIGNEES": "attachments,assignees",
                         "ATTACHMENTS,ASSIGNEES,ACCOUNT": "attachments,assignees,account",
+                        "ATTACHMENTS,ASSIGNEES,ACCOUNT,CONTACT": "attachments,assignees,account,contact",
+                        "ATTACHMENTS,ASSIGNEES,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,assignees,account,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,ACCOUNT,PARENT_TICKET": "attachments,assignees,account,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,CONTACT": "attachments,assignees,contact",
+                        "ATTACHMENTS,ASSIGNEES,CONTACT,PARENT_TICKET": "attachments,assignees,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PARENT_TICKET": "attachments,assignees,parent_ticket",
                         "ATTACHMENTS,ASSIGNEES,PROJECT": "attachments,assignees,project",
                         "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT": "attachments,assignees,project,account",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT,CONTACT": "attachments,assignees,project,account,contact",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,assignees,project,account,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,ACCOUNT,PARENT_TICKET": "attachments,assignees,project,account,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,CONTACT": "attachments,assignees,project,contact",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,CONTACT,PARENT_TICKET": "attachments,assignees,project,contact,parent_ticket",
+                        "ATTACHMENTS,ASSIGNEES,PROJECT,PARENT_TICKET": "attachments,assignees,project,parent_ticket",
+                        "ATTACHMENTS,CONTACT": "attachments,contact",
+                        "ATTACHMENTS,CONTACT,PARENT_TICKET": "attachments,contact,parent_ticket",
+                        "ATTACHMENTS,PARENT_TICKET": "attachments,parent_ticket",
                         "ATTACHMENTS,PROJECT": "attachments,project",
                         "ATTACHMENTS,PROJECT,ACCOUNT": "attachments,project,account",
+                        "ATTACHMENTS,PROJECT,ACCOUNT,CONTACT": "attachments,project,account,contact",
+                        "ATTACHMENTS,PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "attachments,project,account,contact,parent_ticket",
+                        "ATTACHMENTS,PROJECT,ACCOUNT,PARENT_TICKET": "attachments,project,account,parent_ticket",
+                        "ATTACHMENTS,PROJECT,CONTACT": "attachments,project,contact",
+                        "ATTACHMENTS,PROJECT,CONTACT,PARENT_TICKET": "attachments,project,contact,parent_ticket",
+                        "ATTACHMENTS,PROJECT,PARENT_TICKET": "attachments,project,parent_ticket",
+                        "CONTACT": "contact",
+                        "CONTACT,PARENT_TICKET": "contact,parent_ticket",
+                        "PARENT_TICKET": "parent_ticket",
                         "PROJECT": "project",
-                        "PROJECT,ACCOUNT": "project,account"
+                        "PROJECT,ACCOUNT": "project,account",
+                        "PROJECT,ACCOUNT,CONTACT": "project,account,contact",
+                        "PROJECT,ACCOUNT,CONTACT,PARENT_TICKET": "project,account,contact,parent_ticket",
+                        "PROJECT,ACCOUNT,PARENT_TICKET": "project,account,parent_ticket",
+                        "PROJECT,CONTACT": "project,contact",
+                        "PROJECT,CONTACT,PARENT_TICKET": "project,contact,parent_ticket",
+                        "PROJECT,PARENT_TICKET": "project,parent_ticket"
                     },
                 },
                 'openapi_types': {

@@ -102,6 +102,8 @@ Class | Method | HTTP request | Description
 *CommentsApi* | [**comments_list**](docs/CommentsApi.md#comments_list) | **GET** /comments | 
 *CommentsApi* | [**comments_meta_post_retrieve**](docs/CommentsApi.md#comments_meta_post_retrieve) | **GET** /comments/meta/post | 
 *CommentsApi* | [**comments_retrieve**](docs/CommentsApi.md#comments_retrieve) | **GET** /comments/{id} | 
+*ContactsApi* | [**contacts_list**](docs/ContactsApi.md#contacts_list) | **GET** /contacts | 
+*ContactsApi* | [**contacts_retrieve**](docs/ContactsApi.md#contacts_retrieve) | **GET** /contacts/{id} | 
 *DeleteAccountApi* | [**delete_account_create**](docs/DeleteAccountApi.md#delete_account_create) | **POST** /delete-account | 
 *ForceResyncApi* | [**sync_status_resync_create**](docs/ForceResyncApi.md#sync_status_resync_create) | **POST** /sync-status/resync | 
 *GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
@@ -114,8 +116,6 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**projects_retrieve**](docs/ProjectsApi.md#projects_retrieve) | **GET** /projects/{id} | 
 *ProjectsApi* | [**projects_users_list**](docs/ProjectsApi.md#projects_users_list) | **GET** /projects/{id}/users | 
 *RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
-*RolesApi* | [**roles_list**](docs/RolesApi.md#roles_list) | **GET** /roles | 
-*RolesApi* | [**roles_retrieve**](docs/RolesApi.md#roles_retrieve) | **GET** /roles/{id} | 
 *SyncStatusApi* | [**sync_status_list**](docs/SyncStatusApi.md#sync_status_list) | **GET** /sync-status | 
 *TagsApi* | [**tags_list**](docs/TagsApi.md#tags_list) | **GET** /tags | 
 *TagsApi* | [**tags_retrieve**](docs/TagsApi.md#tags_retrieve) | **GET** /tags/{id} | 
@@ -150,6 +150,7 @@ Class | Method | HTTP request | Description
  - [CommentEndpointRequest](docs/CommentEndpointRequest.md)
  - [CommentRequest](docs/CommentRequest.md)
  - [CommentResponse](docs/CommentResponse.md)
+ - [Contact](docs/Contact.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [DebugModeLog](docs/DebugModeLog.md)
  - [DebugModelLogSummary](docs/DebugModelLogSummary.md)
@@ -169,21 +170,19 @@ Class | Method | HTTP request | Description
  - [PaginatedAccountList](docs/PaginatedAccountList.md)
  - [PaginatedAttachmentList](docs/PaginatedAttachmentList.md)
  - [PaginatedCommentList](docs/PaginatedCommentList.md)
+ - [PaginatedContactList](docs/PaginatedContactList.md)
  - [PaginatedIssueList](docs/PaginatedIssueList.md)
  - [PaginatedProjectList](docs/PaginatedProjectList.md)
- - [PaginatedRoleList](docs/PaginatedRoleList.md)
  - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [PaginatedTagList](docs/PaginatedTagList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
  - [PaginatedTicketList](docs/PaginatedTicketList.md)
  - [PaginatedUserList](docs/PaginatedUserList.md)
- - [PaginatedWebhookReceiverList](docs/PaginatedWebhookReceiverList.md)
  - [Project](docs/Project.md)
  - [RemoteKey](docs/RemoteKey.md)
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RequestFormatEnum](docs/RequestFormatEnum.md)
- - [Role](docs/Role.md)
  - [SyncStatus](docs/SyncStatus.md)
  - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tag](docs/Tag.md)

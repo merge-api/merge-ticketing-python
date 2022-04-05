@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **project** | **str, none_type** |  | [optional] 
 **ticket_type** | **str, none_type** | The ticket&#39;s type. | [optional] 
 **account** | **str, none_type** |  | [optional] 
+**contact** | **str, none_type** |  | [optional] 
+**parent_ticket** | **str, none_type** |  | [optional] 
 **attachments** | **[str, none_type]** |  | [optional] 
 **tags** | **[str]** |  | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s ticket was created. | [optional] 

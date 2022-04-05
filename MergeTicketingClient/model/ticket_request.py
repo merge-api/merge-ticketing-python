@@ -82,6 +82,8 @@ class TicketRequest(ModelNormal):
             'project': (str, none_type,),  # noqa: E501
             'ticket_type': (str, none_type,),  # noqa: E501
             'account': (str, none_type,),  # noqa: E501
+            'contact': (str, none_type,),  # noqa: E501
+            'parent_ticket': (str, none_type,),  # noqa: E501
             'attachments': ([str, none_type],),  # noqa: E501
             'tags': ([str],),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
@@ -103,6 +105,8 @@ class TicketRequest(ModelNormal):
         'project': 'project',  # noqa: E501
         'ticket_type': 'ticket_type',  # noqa: E501
         'account': 'account',  # noqa: E501
+        'contact': 'contact',  # noqa: E501
+        'parent_ticket': 'parent_ticket',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
@@ -164,6 +168,8 @@ class TicketRequest(ModelNormal):
             project (str, none_type): [optional]  # noqa: E501
             ticket_type (str, none_type): The ticket's type.. [optional]  # noqa: E501
             account (str, none_type): [optional]  # noqa: E501
+            contact (str, none_type): [optional]  # noqa: E501
+            parent_ticket (str, none_type): [optional]  # noqa: E501
             attachments ([str, none_type]): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's ticket was created.. [optional]  # noqa: E501
