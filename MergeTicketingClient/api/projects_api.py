@@ -356,7 +356,7 @@ class ProjectsApi(object):
         ):
             """projects_users_list  # noqa: E501
 
-            Returns an `User` object with the given `id`.  # noqa: E501
+            Returns a `User` object with the given `id`.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -368,8 +368,8 @@ class ProjectsApi(object):
                 id (str):
 
             Keyword Args:
-                cursor (int): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "teams"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 _return_http_data_only (bool): response data without head status
@@ -460,9 +460,7 @@ class ProjectsApi(object):
                 'allowed_values': {
                     ('expand',): {
 
-                        "ROLE": "role",
-                        "TEAMS": "teams",
-                        "TEAMS,ROLE": "teams,role"
+                        "TEAMS": "teams"
                     },
                 },
                 'openapi_types': {
@@ -471,7 +469,7 @@ class ProjectsApi(object):
                     'id':
                         (str,),
                     'cursor':
-                        (int,),
+                        (str,),
                     'expand':
                         (str,),
                     'include_remote_data':

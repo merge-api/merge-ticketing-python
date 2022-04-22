@@ -78,7 +78,6 @@ class User(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'email_address': (str, none_type,),  # noqa: E501
             'is_active': (bool, none_type,),  # noqa: E501
-            'roles': ([str, none_type],),  # noqa: E501
             'teams': ([str, none_type],),  # noqa: E501
         }
 
@@ -93,7 +92,6 @@ class User(ModelNormal):
         'name': 'name',  # noqa: E501
         'email_address': 'email_address',  # noqa: E501
         'is_active': 'is_active',  # noqa: E501
-        'roles': 'roles',  # noqa: E501
         'teams': 'teams',  # noqa: E501
     }
 
@@ -148,7 +146,6 @@ class User(ModelNormal):
             name (str, none_type): The user's name.. [optional]  # noqa: E501
             email_address (str, none_type): The user's email address.. [optional]  # noqa: E501
             is_active (bool, none_type): Whether or not the user is active.. [optional]  # noqa: E501
-            roles ([str, none_type]): [optional]  # noqa: E501
             teams ([str, none_type]): [optional]  # noqa: E501
         """
 

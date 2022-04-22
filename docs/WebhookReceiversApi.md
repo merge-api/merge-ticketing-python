@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **webhook_receivers_create**
-> WebhookReceiver webhook_receivers_create(webhook_receiver_request)
+> WebhookReceiver webhook_receivers_create(x_account_token, webhook_receiver_request)
 
 
 
@@ -46,6 +46,7 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 with MergeTicketingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhook_receivers_api.WebhookReceiversApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     webhook_receiver_request = WebhookReceiverRequest(
         event="event_example",
         is_active=True,
@@ -54,7 +55,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.webhook_receivers_create(webhook_receiver_request)
+        api_response = api_instance.webhook_receivers_create(x_account_token, webhook_receiver_request)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
         print("Exception when calling WebhookReceiversApi->webhook_receivers_create: %s\n" % e)
@@ -65,6 +66,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
  **webhook_receiver_request** | [**WebhookReceiverRequest**](WebhookReceiverRequest.md)|  |
 
 ### Return type
@@ -89,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_receivers_list**
-> PaginatedWebhookReceiverList webhook_receivers_list()
+> [WebhookReceiver] webhook_receivers_list(x_account_token)
 
 
 
@@ -102,7 +104,7 @@ Returns a list of `WebhookReceiver` objects.
 import time
 import MergeTicketingClient
 from MergeTicketingClient.api import webhook_receivers_api
-from MergeTicketingClient.model.paginated_webhook_receiver_list import PaginatedWebhookReceiverList
+from MergeTicketingClient.model.webhook_receiver import WebhookReceiver
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/ticketing/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -125,13 +127,11 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 with MergeTicketingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhook_receivers_api.WebhookReceiversApi(api_client)
-    cursor = 1 # int | The pagination cursor value. (optional)
-    page_size = 1 # int | Number of results to return per page. (optional)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
 
     # example passing only required values which don't have defaults set
-    # and optional values
     try:
-        api_response = api_instance.webhook_receivers_list(cursor=cursor, page_size=page_size)
+        api_response = api_instance.webhook_receivers_list(x_account_token)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
         print("Exception when calling WebhookReceiversApi->webhook_receivers_list: %s\n" % e)
@@ -142,12 +142,11 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cursor** | **int**| The pagination cursor value. | [optional]
- **page_size** | **int**| Number of results to return per page. | [optional]
+ **x_account_token** | **str**| Token identifying the end user. |
 
 ### Return type
 
-[**PaginatedWebhookReceiverList**](PaginatedWebhookReceiverList.md)
+[**[WebhookReceiver]**](WebhookReceiver.md)
 
 ### Authorization
 

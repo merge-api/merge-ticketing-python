@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import MergeTicketingClient
-from MergeTicketingClient.model.role import Role
+from MergeTicketingClient.model.contact import Contact
 
 
-class TestRole(unittest.TestCase):
-    """Role unit test stubs"""
+class TestContact(unittest.TestCase):
+    """Contact unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestRole(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRole(self):
-        """Test Role"""
+    def testContact(self):
+        """Test Contact"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Role()  # noqa: E501
+        # model = Contact()  # noqa: E501
         pass
 
 

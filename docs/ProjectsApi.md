@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 
 
-Returns an `User` object with the given `id`.
+Returns a `User` object with the given `id`.
 
 ### Example
 
@@ -236,8 +236,8 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    cursor = 1 # int | The pagination cursor value. (optional)
-    expand = "teams,role" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
+    expand = "teams" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "teams"
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
 
@@ -264,8 +264,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
- **cursor** | **int**| The pagination cursor value. | [optional]
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
+ **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "teams"
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
 

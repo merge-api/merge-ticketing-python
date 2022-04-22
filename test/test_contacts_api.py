@@ -12,26 +12,26 @@
 import unittest
 
 import MergeTicketingClient
-from MergeTicketingClient.api.roles_api import RolesApi  # noqa: E501
+from MergeTicketingClient.api.contacts_api import ContactsApi  # noqa: E501
 
 
-class TestRolesApi(unittest.TestCase):
-    """RolesApi unit test stubs"""
+class TestContactsApi(unittest.TestCase):
+    """ContactsApi unit test stubs"""
 
     def setUp(self):
-        self.api = RolesApi()  # noqa: E501
+        self.api = ContactsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_roles_list(self):
-        """Test case for roles_list
+    def test_contacts_list(self):
+        """Test case for contacts_list
 
         """
         pass
 
-    def test_roles_retrieve(self):
-        """Test case for roles_retrieve
+    def test_contacts_retrieve(self):
+        """Test case for contacts_retrieve
 
         """
         pass
