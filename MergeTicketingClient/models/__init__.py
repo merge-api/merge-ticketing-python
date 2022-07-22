@@ -54,6 +54,7 @@ from MergeTicketingClient.model.paginated_team_list import PaginatedTeamList
 from MergeTicketingClient.model.paginated_ticket_list import PaginatedTicketList
 from MergeTicketingClient.model.paginated_user_list import PaginatedUserList
 from MergeTicketingClient.model.project import Project
+from MergeTicketingClient.model.remote_data import RemoteData
 from MergeTicketingClient.model.remote_key import RemoteKey
 from MergeTicketingClient.model.remote_key_for_regeneration_request import RemoteKeyForRegenerationRequest
 from MergeTicketingClient.model.remote_response import RemoteResponse

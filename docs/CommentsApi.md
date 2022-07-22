@@ -52,10 +52,12 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     comment_endpoint_request = CommentEndpointRequest(
         model=CommentRequest(
             remote_id="19202938",
-            author="17a54124-287f-494d-965e-3c5b330c9a68",
-            body="What is the status update?",
-            html_body="<p>What is the status update?</p>",
+            user="17a54124-287f-494d-965e-3c5b330c9a68",
+            contact="dde3fb16-b8eb-483d-81c4-b78100816f15",
+            body="When will these integrations be done? You all should use Merge.",
+            html_body="When will these integrations be done? You all should use <b>Merge<b>.",
             ticket="fb8c55b6-1cb8-4b4c-9fb6-17924231619d",
+            is_private=True,
             remote_created_at=dateutil_parser('1990-11-10T00:00:00Z'),
         ),
     ) # CommentEndpointRequest | 
@@ -150,8 +152,8 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    expand = "author,ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
-    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
+    expand = "user,contact,ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
@@ -185,7 +187,7 @@ Name | Type | Description  | Notes
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
- **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -328,7 +330,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    expand = "author,ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "user,contact,ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set

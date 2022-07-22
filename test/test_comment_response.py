@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
 from MergeTicketingClient.model.comment import Comment
@@ -22,6 +23,7 @@ globals()['DebugModeLog'] = DebugModeLog
 globals()['ErrorValidationProblem'] = ErrorValidationProblem
 globals()['WarningValidationProblem'] = WarningValidationProblem
 from MergeTicketingClient.model.comment_response import CommentResponse
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestCommentResponse(unittest.TestCase):
@@ -37,7 +39,25 @@ class TestCommentResponse(unittest.TestCase):
         """Test CommentResponse"""
         # FIXME: construct object with mandatory attributes with example values
         # model = CommentResponse()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for CommentResponse
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (CommentResponse,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
+        assert deserialized.warnings is not None
+        assert deserialized.errors is not None
 
 
 if __name__ == '__main__':

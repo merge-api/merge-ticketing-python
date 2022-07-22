@@ -11,9 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
+from MergeTicketingClient.model.remote_data import RemoteData
+globals()['RemoteData'] = RemoteData
 from MergeTicketingClient.model.tag import Tag
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestTag(unittest.TestCase):
@@ -29,7 +33,22 @@ class TestTag(unittest.TestCase):
         """Test Tag"""
         # FIXME: construct object with mandatory attributes with example values
         # model = Tag()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for Tag
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (Tag,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

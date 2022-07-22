@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
 from MergeTicketingClient.model.ticket_status_enum import TicketStatusEnum
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestTicketStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestTicketStatusEnum(unittest.TestCase):
         """Test TicketStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = TicketStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()
