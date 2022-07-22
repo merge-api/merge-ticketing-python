@@ -45,7 +45,7 @@ class TeamsApi(object):
         ):
             """teams_list  # noqa: E501
 
-            Returns a list of `TicketingTeam` objects.  # noqa: E501
+            Returns a list of `Team` objects.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
@@ -59,7 +59,7 @@ class TeamsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -220,7 +220,7 @@ class TeamsApi(object):
         ):
             """teams_retrieve  # noqa: E501
 
-            Returns a `TicketingTeam` object with the given `id`.  # noqa: E501
+            Returns a `Team` object with the given `id`.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
 from MergeTicketingClient.model.ticket_request import TicketRequest
 globals()['TicketRequest'] = TicketRequest
 from MergeTicketingClient.model.ticket_endpoint_request import TicketEndpointRequest
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestTicketEndpointRequest(unittest.TestCase):
@@ -31,7 +33,23 @@ class TestTicketEndpointRequest(unittest.TestCase):
         """Test TicketEndpointRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = TicketEndpointRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for TicketEndpointRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (TicketEndpointRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
 
 
 if __name__ == '__main__':

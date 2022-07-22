@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **tags** | **[str]** |  | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s ticket was created. | [optional] 
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s ticket was updated. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

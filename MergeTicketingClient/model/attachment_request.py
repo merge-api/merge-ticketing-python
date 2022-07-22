@@ -149,7 +149,7 @@ class AttachmentRequest(ModelNormal):
             file_url (str, none_type): The attachment's url.. [optional]  # noqa: E501
             content_type (str, none_type): The attachment's file format.. [optional]  # noqa: E501
             uploaded_by (str, none_type): [optional]  # noqa: E501
-            remote_created_at (datetime, none_type): The attachment's url.. [optional]  # noqa: E501
+            remote_created_at (datetime, none_type): When the third party's attachment was created.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

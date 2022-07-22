@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
 from MergeTicketingClient.model.project import Project
 globals()['Project'] = Project
 from MergeTicketingClient.model.paginated_project_list import PaginatedProjectList
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestPaginatedProjectList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedProjectList(unittest.TestCase):
         """Test PaginatedProjectList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedProjectList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedProjectList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedProjectList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':
