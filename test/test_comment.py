@@ -11,9 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
+from MergeTicketingClient.model.remote_data import RemoteData
+globals()['RemoteData'] = RemoteData
 from MergeTicketingClient.model.comment import Comment
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestComment(unittest.TestCase):
@@ -29,7 +33,22 @@ class TestComment(unittest.TestCase):
         """Test Comment"""
         # FIXME: construct object with mandatory attributes with example values
         # model = Comment()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for Comment
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (Comment,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

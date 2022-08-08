@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **file_url** | **str, none_type** | The attachment&#39;s url. | [optional] 
 **content_type** | **str, none_type** | The attachment&#39;s file format. | [optional] 
 **uploaded_by** | **str, none_type** |  | [optional] 
-**remote_created_at** | **datetime, none_type** | The attachment&#39;s url. | [optional] 
+**remote_created_at** | **datetime, none_type** | When the third party&#39;s attachment was created. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

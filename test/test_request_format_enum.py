@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
 from MergeTicketingClient.model.request_format_enum import RequestFormatEnum
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestRequestFormatEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestRequestFormatEnum(unittest.TestCase):
         """Test RequestFormatEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = RequestFormatEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

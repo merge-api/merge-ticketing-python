@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 
-Creates a `TicketingAttachment` object with the given values.
+Creates an `Attachment` object with the given values.
 
 ### Example
 
@@ -57,7 +57,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
             file_url="http://alturl.com/p749b",
             content_type="jpeg",
             uploaded_by="28b54125-287f-494d-965e-3c5b330c9a68",
-            remote_created_at=dateutil_parser('1990-11-10T00:00:00Z'),
+            remote_created_at=dateutil_parser('2022-11-10T00:00:00Z'),
         ),
     ) # TicketingAttachmentEndpointRequest | 
     is_debug_mode = True # bool | Whether to include debug fields (such as log file links) in the response. (optional)
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 
 
-Returns a list of `TicketingAttachment` objects.
+Returns a list of `Attachment` objects.
 
 ### Example
 
@@ -152,7 +152,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     expand = "ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "ticket"
-    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
+    include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "ticket"
- **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 
 
-Returns a `TicketingAttachment` object with the given `id`.
+Returns an `Attachment` object with the given `id`.
 
 ### Example
 

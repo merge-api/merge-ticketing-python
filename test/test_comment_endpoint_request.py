@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
 from MergeTicketingClient.model.comment_request import CommentRequest
 globals()['CommentRequest'] = CommentRequest
 from MergeTicketingClient.model.comment_endpoint_request import CommentEndpointRequest
+from MergeTicketingClient.api_client import ApiClient
 
 
 class TestCommentEndpointRequest(unittest.TestCase):
@@ -31,7 +33,23 @@ class TestCommentEndpointRequest(unittest.TestCase):
         """Test CommentEndpointRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = CommentEndpointRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for CommentEndpointRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (CommentEndpointRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
 
 
 if __name__ == '__main__':
