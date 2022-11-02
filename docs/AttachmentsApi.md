@@ -58,6 +58,12 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
             content_type="jpeg",
             uploaded_by="28b54125-287f-494d-965e-3c5b330c9a68",
             remote_created_at=dateutil_parser('2022-11-10T00:00:00Z'),
+            integration_params={
+                "key": None,
+            },
+            linked_account_params={
+                "key": None,
+            },
         ),
     ) # TicketingAttachmentEndpointRequest | 
     is_debug_mode = True # bool | Whether to include debug fields (such as log file links) in the response. (optional)

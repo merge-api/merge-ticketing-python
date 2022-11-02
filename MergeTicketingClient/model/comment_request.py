@@ -81,6 +81,8 @@ class CommentRequest(ModelNormal):
             'ticket': (str, none_type,),  # noqa: E501
             'is_private': (bool, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +99,8 @@ class CommentRequest(ModelNormal):
         'ticket': 'ticket',  # noqa: E501
         'is_private': 'is_private',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
+        'integration_params': 'integration_params',  # noqa: E501
+        'linked_account_params': 'linked_account_params',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,6 +157,8 @@ class CommentRequest(ModelNormal):
             ticket (str, none_type): [optional]  # noqa: E501
             is_private (bool, none_type): Whether or not the comment is internal.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's comment was created.. [optional]  # noqa: E501
+            integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

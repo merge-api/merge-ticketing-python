@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **ticket** | **str, none_type** |  | [optional] 
 **is_private** | **bool, none_type** | Whether or not the comment is internal. | [optional] 
 **remote_created_at** | **datetime, none_type** | When the third party&#39;s comment was created. | [optional] 
+**integration_params** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
+**linked_account_params** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

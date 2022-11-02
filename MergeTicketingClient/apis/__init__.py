@@ -30,6 +30,7 @@ from MergeTicketingClient.api.linked_accounts_api import LinkedAccountsApi
 from MergeTicketingClient.api.passthrough_api import PassthroughApi
 from MergeTicketingClient.api.projects_api import ProjectsApi
 from MergeTicketingClient.api.regenerate_key_api import RegenerateKeyApi
+from MergeTicketingClient.api.selective_sync_api import SelectiveSyncApi
 from MergeTicketingClient.api.sync_status_api import SyncStatusApi
 from MergeTicketingClient.api.tags_api import TagsApi
 from MergeTicketingClient.api.teams_api import TeamsApi

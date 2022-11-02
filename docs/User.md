@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **email_address** | **str, none_type** | The user&#39;s email address. | [optional] 
 **is_active** | **bool, none_type** | Whether or not the user is active. | [optional] 
 **teams** | **[str, none_type]** |  | [optional] 
+**avatar** | **str, none_type** | The user&#39;s avatar picture. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 **remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 

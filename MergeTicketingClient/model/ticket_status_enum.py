@@ -52,6 +52,8 @@ class TicketStatusEnum(ModelSimple):
         ('value',): {
             'OPEN': "OPEN",
             'CLOSED': "CLOSED",
+            'IN_PROGRESS': "IN_PROGRESS",
+            'ON_HOLD': "ON_HOLD",
         },
     }
 
@@ -101,10 +103,10 @@ class TicketStatusEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["OPEN", "CLOSED", ]  # noqa: E501
+            args[0] (str):, must be one of ["OPEN", "CLOSED", "IN_PROGRESS", "ON_HOLD", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["OPEN", "CLOSED", ]  # noqa: E501
+            value (str):, must be one of ["OPEN", "CLOSED", "IN_PROGRESS", "ON_HOLD", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

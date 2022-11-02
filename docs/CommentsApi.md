@@ -59,6 +59,12 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
             ticket="fb8c55b6-1cb8-4b4c-9fb6-17924231619d",
             is_private=True,
             remote_created_at=dateutil_parser('1990-11-10T00:00:00Z'),
+            integration_params={
+                "key": None,
+            },
+            linked_account_params={
+                "key": None,
+            },
         ),
     ) # CommentEndpointRequest | 
     is_debug_mode = True # bool | Whether to include debug fields (such as log file links) in the response. (optional)

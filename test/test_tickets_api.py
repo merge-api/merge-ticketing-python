@@ -42,8 +42,20 @@ class TestTicketsApi(unittest.TestCase):
         """
         pass
 
+    def test_tickets_meta_patch_retrieve(self):
+        """Test case for tickets_meta_patch_retrieve
+
+        """
+        pass
+
     def test_tickets_meta_post_retrieve(self):
         """Test case for tickets_meta_post_retrieve
+
+        """
+        pass
+
+    def test_tickets_partial_update(self):
+        """Test case for tickets_partial_update
 
         """
         pass
