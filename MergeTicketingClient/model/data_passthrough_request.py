@@ -92,7 +92,7 @@ class DataPassthroughRequest(ModelNormal):
             'base_url_override': (str, none_type,),  # noqa: E501
             'data': (str, none_type,),  # noqa: E501
             'multipart_form_data': ([MultipartFormFieldRequest], none_type,),  # noqa: E501
-            'headers': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'headers': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'request_format': (object, none_type,),  # noqa: E501
             'normalize_response': (bool,),  # noqa: E501
         }

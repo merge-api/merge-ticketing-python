@@ -80,8 +80,8 @@ class AttachmentRequest(ModelNormal):
             'content_type': (str, none_type,),  # noqa: E501
             'uploaded_by': (str, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
-            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
