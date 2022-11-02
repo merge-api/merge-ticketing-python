@@ -60,6 +60,9 @@ class Ticket(ModelNormal):
     }
 
     validations = {
+        ('ticket_url',): {
+            'max_length': 2000,
+        },
     }
 
     additional_properties_type = None
@@ -82,6 +85,7 @@ class Ticket(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'assignees': ([str, none_type],),  # noqa: E501
+            'creator': (str, none_type,),  # noqa: E501
             'due_date': (datetime, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -94,8 +98,11 @@ class Ticket(ModelNormal):
             'tags': ([str],),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
+            'completed_at': (datetime, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'remote_was_deleted': (bool,),  # noqa: E501
+            'ticket_url': (str, none_type,),  # noqa: E501
+            'priority': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +115,7 @@ class Ticket(ModelNormal):
         'remote_id': 'remote_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'assignees': 'assignees',  # noqa: E501
+        'creator': 'creator',  # noqa: E501
         'due_date': 'due_date',  # noqa: E501
         'status': 'status',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -120,8 +128,11 @@ class Ticket(ModelNormal):
         'tags': 'tags',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
+        'completed_at': 'completed_at',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
+        'ticket_url': 'ticket_url',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -174,9 +185,10 @@ class Ticket(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             name (str, none_type): The ticket's name.. [optional]  # noqa: E501
             assignees ([str, none_type]): [optional]  # noqa: E501
+            creator (str, none_type): [optional]  # noqa: E501
             due_date (datetime, none_type): The ticket's due date.. [optional]  # noqa: E501
             status (object, none_type): The current status of the ticket.. [optional]  # noqa: E501
-            description (str, none_type): The ticket's description.. [optional]  # noqa: E501
+            description (str, none_type): The ticket’s description. HTML version of description is mapped if supported by the third-party platform.. [optional]  # noqa: E501
             project (str, none_type): [optional]  # noqa: E501
             ticket_type (str, none_type): The ticket's type.. [optional]  # noqa: E501
             account (str, none_type): [optional]  # noqa: E501
@@ -186,8 +198,11 @@ class Ticket(ModelNormal):
             tags ([str]): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's ticket was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's ticket was updated.. [optional]  # noqa: E501
+            completed_at (datetime, none_type): When the ticket was completed.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             remote_was_deleted (bool): [optional]  # noqa: E501
+            ticket_url (str, none_type): The 3rd party url of the Ticket.. [optional]  # noqa: E501
+            priority (object, none_type): The priority or urgency of the Ticket. Possible values include: URGENT, HIGH, NORMAL, LOW - in cases where there is no clear mapping - the original value passed through.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

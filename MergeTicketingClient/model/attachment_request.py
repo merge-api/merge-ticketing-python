@@ -80,6 +80,8 @@ class AttachmentRequest(ModelNormal):
             'content_type': (str, none_type,),  # noqa: E501
             'uploaded_by': (str, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +97,8 @@ class AttachmentRequest(ModelNormal):
         'content_type': 'content_type',  # noqa: E501
         'uploaded_by': 'uploaded_by',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
+        'integration_params': 'integration_params',  # noqa: E501
+        'linked_account_params': 'linked_account_params',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -150,6 +154,8 @@ class AttachmentRequest(ModelNormal):
             content_type (str, none_type): The attachment's file format.. [optional]  # noqa: E501
             uploaded_by (str, none_type): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's attachment was created.. [optional]  # noqa: E501
+            integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

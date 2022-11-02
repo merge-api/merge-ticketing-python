@@ -84,6 +84,7 @@ class User(ModelNormal):
             'email_address': (str, none_type,),  # noqa: E501
             'is_active': (bool, none_type,),  # noqa: E501
             'teams': ([str, none_type],),  # noqa: E501
+            'avatar': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'remote_was_deleted': (bool,),  # noqa: E501
         }
@@ -100,6 +101,7 @@ class User(ModelNormal):
         'email_address': 'email_address',  # noqa: E501
         'is_active': 'is_active',  # noqa: E501
         'teams': 'teams',  # noqa: E501
+        'avatar': 'avatar',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
@@ -156,6 +158,7 @@ class User(ModelNormal):
             email_address (str, none_type): The user's email address.. [optional]  # noqa: E501
             is_active (bool, none_type): Whether or not the user is active.. [optional]  # noqa: E501
             teams ([str, none_type]): [optional]  # noqa: E501
+            avatar (str, none_type): The user's avatar picture.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
