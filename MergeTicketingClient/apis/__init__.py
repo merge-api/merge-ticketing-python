@@ -19,6 +19,7 @@ from MergeTicketingClient.api.account_token_api import AccountTokenApi
 from MergeTicketingClient.api.accounts_api import AccountsApi
 from MergeTicketingClient.api.attachments_api import AttachmentsApi
 from MergeTicketingClient.api.available_actions_api import AvailableActionsApi
+from MergeTicketingClient.api.collections_api import CollectionsApi
 from MergeTicketingClient.api.comments_api import CommentsApi
 from MergeTicketingClient.api.contacts_api import ContactsApi
 from MergeTicketingClient.api.delete_account_api import DeleteAccountApi

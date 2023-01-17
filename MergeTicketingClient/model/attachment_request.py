@@ -80,8 +80,8 @@ class AttachmentRequest(ModelNormal):
             'content_type': (str, none_type,),  # noqa: E501
             'uploaded_by': (str, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
-            'integration_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'linked_account_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,10 +149,10 @@ class AttachmentRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             file_name (str, none_type): The attachment's name.. [optional]  # noqa: E501
-            ticket (str, none_type): [optional]  # noqa: E501
+            ticket (str, none_type): The ticket associated with the attachment.. [optional]  # noqa: E501
             file_url (str, none_type): The attachment's url.. [optional]  # noqa: E501
             content_type (str, none_type): The attachment's file format.. [optional]  # noqa: E501
-            uploaded_by (str, none_type): [optional]  # noqa: E501
+            uploaded_by (str, none_type): The user who uploaded the attachment.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's attachment was created.. [optional]  # noqa: E501
             integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501

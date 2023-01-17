@@ -1,12 +1,10 @@
-# LinkToken
+# SelectiveSyncConfigurationsUsageEnum
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**link_token** | **str** |  | 
-**integration_name** | **str** |  | [optional] 
-**magic_link_url** | **str** |  | [optional] 
+**value** | **str** |  |  must be one of ["IN_NEXT_SYNC", "IN_LAST_SYNC", ]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

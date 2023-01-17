@@ -21,6 +21,8 @@ from MergeTicketingClient.model.attachment_request import AttachmentRequest
 from MergeTicketingClient.model.available_actions import AvailableActions
 from MergeTicketingClient.model.categories_enum import CategoriesEnum
 from MergeTicketingClient.model.category_enum import CategoryEnum
+from MergeTicketingClient.model.collection import Collection
+from MergeTicketingClient.model.collection_type_enum import CollectionTypeEnum
 from MergeTicketingClient.model.comment import Comment
 from MergeTicketingClient.model.comment_endpoint_request import CommentEndpointRequest
 from MergeTicketingClient.model.comment_request import CommentRequest
@@ -52,6 +54,7 @@ from MergeTicketingClient.model.operator_schema import OperatorSchema
 from MergeTicketingClient.model.paginated_account_details_and_actions_list import PaginatedAccountDetailsAndActionsList
 from MergeTicketingClient.model.paginated_account_list import PaginatedAccountList
 from MergeTicketingClient.model.paginated_attachment_list import PaginatedAttachmentList
+from MergeTicketingClient.model.paginated_collection_list import PaginatedCollectionList
 from MergeTicketingClient.model.paginated_comment_list import PaginatedCommentList
 from MergeTicketingClient.model.paginated_condition_schema_list import PaginatedConditionSchemaList
 from MergeTicketingClient.model.paginated_contact_list import PaginatedContactList
@@ -72,6 +75,7 @@ from MergeTicketingClient.model.remote_key_for_regeneration_request import Remot
 from MergeTicketingClient.model.remote_response import RemoteResponse
 from MergeTicketingClient.model.request_format_enum import RequestFormatEnum
 from MergeTicketingClient.model.response_type_enum import ResponseTypeEnum
+from MergeTicketingClient.model.selective_sync_configurations_usage_enum import SelectiveSyncConfigurationsUsageEnum
 from MergeTicketingClient.model.sync_status import SyncStatus
 from MergeTicketingClient.model.sync_status_status_enum import SyncStatusStatusEnum
 from MergeTicketingClient.model.tag import Tag

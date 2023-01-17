@@ -90,6 +90,7 @@ class Ticket(ModelNormal):
             'status': (object, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'project': (str, none_type,),  # noqa: E501
+            'collections': ([str, none_type],),  # noqa: E501
             'ticket_type': (str, none_type,),  # noqa: E501
             'account': (str, none_type,),  # noqa: E501
             'contact': (str, none_type,),  # noqa: E501
@@ -103,6 +104,7 @@ class Ticket(ModelNormal):
             'remote_was_deleted': (bool,),  # noqa: E501
             'ticket_url': (str, none_type,),  # noqa: E501
             'priority': (object, none_type,),  # noqa: E501
+            'field_mappings': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -120,6 +122,7 @@ class Ticket(ModelNormal):
         'status': 'status',  # noqa: E501
         'description': 'description',  # noqa: E501
         'project': 'project',  # noqa: E501
+        'collections': 'collections',  # noqa: E501
         'ticket_type': 'ticket_type',  # noqa: E501
         'account': 'account',  # noqa: E501
         'contact': 'contact',  # noqa: E501
@@ -133,6 +136,7 @@ class Ticket(ModelNormal):
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
         'ticket_url': 'ticket_url',  # noqa: E501
         'priority': 'priority',  # noqa: E501
+        'field_mappings': 'field_mappings',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -185,15 +189,16 @@ class Ticket(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             name (str, none_type): The ticket's name.. [optional]  # noqa: E501
             assignees ([str, none_type]): [optional]  # noqa: E501
-            creator (str, none_type): [optional]  # noqa: E501
+            creator (str, none_type): The user who created this ticket.. [optional]  # noqa: E501
             due_date (datetime, none_type): The ticket's due date.. [optional]  # noqa: E501
             status (object, none_type): The current status of the ticket.. [optional]  # noqa: E501
             description (str, none_type): The ticket’s description. HTML version of description is mapped if supported by the third-party platform.. [optional]  # noqa: E501
-            project (str, none_type): [optional]  # noqa: E501
+            project (str, none_type): The project the ticket belongs to.. [optional]  # noqa: E501
+            collections ([str, none_type]): [optional]  # noqa: E501
             ticket_type (str, none_type): The ticket's type.. [optional]  # noqa: E501
-            account (str, none_type): [optional]  # noqa: E501
-            contact (str, none_type): [optional]  # noqa: E501
-            parent_ticket (str, none_type): [optional]  # noqa: E501
+            account (str, none_type): The account associated with the ticket.. [optional]  # noqa: E501
+            contact (str, none_type): The contact associated with the ticket.. [optional]  # noqa: E501
+            parent_ticket (str, none_type): The ticket's parent ticket.. [optional]  # noqa: E501
             attachments ([str, none_type]): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's ticket was created.. [optional]  # noqa: E501
@@ -203,6 +208,7 @@ class Ticket(ModelNormal):
             remote_was_deleted (bool): [optional]  # noqa: E501
             ticket_url (str, none_type): The 3rd party url of the Ticket.. [optional]  # noqa: E501
             priority (object, none_type): The priority or urgency of the Ticket. Possible values include: URGENT, HIGH, NORMAL, LOW - in cases where there is no clear mapping - the original value passed through.. [optional]  # noqa: E501
+            field_mappings ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

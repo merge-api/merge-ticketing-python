@@ -79,6 +79,7 @@ class SyncStatus(ModelNormal):
             'is_initial_sync': (bool,),  # noqa: E501
             'last_sync_start': (datetime,),  # noqa: E501
             'next_sync_start': (datetime,),  # noqa: E501
+            'selective_sync_configurations_usage': (object,),  # noqa: E501
         }
 
     @cached_property
@@ -93,6 +94,7 @@ class SyncStatus(ModelNormal):
         'is_initial_sync': 'is_initial_sync',  # noqa: E501
         'last_sync_start': 'last_sync_start',  # noqa: E501
         'next_sync_start': 'next_sync_start',  # noqa: E501
+        'selective_sync_configurations_usage': 'selective_sync_configurations_usage',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -149,6 +151,7 @@ class SyncStatus(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             last_sync_start (datetime): [optional]  # noqa: E501
             next_sync_start (datetime): [optional]  # noqa: E501
+            selective_sync_configurations_usage (object): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
