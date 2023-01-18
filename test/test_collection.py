@@ -14,12 +14,14 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeTicketingClient
-from MergeTicketingClient.model.link_token import LinkToken
+from MergeTicketingClient.model.remote_data import RemoteData
+globals()['RemoteData'] = RemoteData
+from MergeTicketingClient.model.collection import Collection
 from MergeTicketingClient.api_client import ApiClient
 
 
-class TestLinkToken(unittest.TestCase):
-    """LinkToken unit test stubs"""
+class TestCollection(unittest.TestCase):
+    """Collection unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,13 +29,13 @@ class TestLinkToken(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testLinkToken(self):
-        """Test LinkToken"""
+    def testCollection(self):
+        """Test Collection"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = LinkToken()  # noqa: E501
+        # model = Collection()  # noqa: E501
 
         """
-        No test json responses were defined for LinkToken
+        No test json responses were defined for Collection
         """
         raw_json = None
 
@@ -43,11 +45,10 @@ class TestLinkToken(unittest.TestCase):
         response_mock = MagicMock()
         response_mock.data = raw_json
 
-        deserialized = ApiClient().deserialize(response_mock, (LinkToken,), False)
+        deserialized = ApiClient().deserialize(response_mock, (Collection,), False)
 
         assert deserialized is not None
 
-        assert deserialized.link_token is not None
 
 
 if __name__ == '__main__':

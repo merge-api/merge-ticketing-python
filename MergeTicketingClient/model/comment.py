@@ -89,6 +89,7 @@ class Comment(ModelNormal):
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'remote_was_deleted': (bool,),  # noqa: E501
+            'field_mappings': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +109,7 @@ class Comment(ModelNormal):
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
+        'field_mappings': 'field_mappings',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -158,15 +160,16 @@ class Comment(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            user (str, none_type): [optional]  # noqa: E501
-            contact (str, none_type): [optional]  # noqa: E501
+            user (str, none_type): The author of the Comment, if the author is a User.. [optional]  # noqa: E501
+            contact (str, none_type): The author of the Comment, if the author is a Contact.. [optional]  # noqa: E501
             body (str, none_type): The comment's text body.. [optional]  # noqa: E501
             html_body (str, none_type): The comment's text body formatted as html.. [optional]  # noqa: E501
-            ticket (str, none_type): [optional]  # noqa: E501
+            ticket (str, none_type): The ticket associated with the comment. . [optional]  # noqa: E501
             is_private (bool, none_type): Whether or not the comment is internal.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's comment was created.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             remote_was_deleted (bool): [optional]  # noqa: E501
+            field_mappings ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

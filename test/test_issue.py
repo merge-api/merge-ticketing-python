@@ -14,8 +14,6 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeTicketingClient
-from MergeTicketingClient.model.issue_status_enum import IssueStatusEnum
-globals()['IssueStatusEnum'] = IssueStatusEnum
 from MergeTicketingClient.model.issue import Issue
 from MergeTicketingClient.api_client import ApiClient
 

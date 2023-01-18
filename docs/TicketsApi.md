@@ -4,7 +4,7 @@ All URIs are relative to *https://api.merge.dev/api/ticketing/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**tickets_collaborators_list**](TicketsApi.md#tickets_collaborators_list) | **GET** /tickets/{id}/collaborators | 
+[**tickets_collaborators_list**](TicketsApi.md#tickets_collaborators_list) | **GET** /tickets/{parent_id}/collaborators | 
 [**tickets_create**](TicketsApi.md#tickets_create) | **POST** /tickets | 
 [**tickets_list**](TicketsApi.md#tickets_list) | **GET** /tickets | 
 [**tickets_meta_patch_retrieve**](TicketsApi.md#tickets_meta_patch_retrieve) | **GET** /tickets/meta/patch/{id} | 
@@ -14,11 +14,11 @@ Method | HTTP request | Description
 
 
 # **tickets_collaborators_list**
-> PaginatedUserList tickets_collaborators_list(x_account_token, id)
+> PaginatedUserList tickets_collaborators_list(x_account_token, parent_id)
 
 
 
-Returns a `User` object with the given `id`.
+Returns a list of `User` objects.
 
 ### Example
 
@@ -51,15 +51,16 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tickets_api.TicketsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    id = "id_example" # str | 
+    parent_id = "parent_id_example" # str | 
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     expand = "teams" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "teams"
+    include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.tickets_collaborators_list(x_account_token, id)
+        api_response = api_instance.tickets_collaborators_list(x_account_token, parent_id)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
         print("Exception when calling TicketsApi->tickets_collaborators_list: %s\n" % e)
@@ -67,7 +68,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.tickets_collaborators_list(x_account_token, id, cursor=cursor, expand=expand, include_remote_data=include_remote_data, page_size=page_size)
+        api_response = api_instance.tickets_collaborators_list(x_account_token, parent_id, cursor=cursor, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, page_size=page_size)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
         print("Exception when calling TicketsApi->tickets_collaborators_list: %s\n" % e)
@@ -79,9 +80,10 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **id** | **str**|  |
+ **parent_id** | **str**|  |
  **cursor** | **str**| The pagination cursor value. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "teams"
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
 
@@ -155,6 +157,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
             status=,
             description="Can you please add more integrations? It'll make syncing data much easier!",
             project="fb8c55b6-1cb8-4b4c-9fb6-17924231619d",
+            collections=["fb8c55b6-1cb8-4b4c-9fb6-17924231619d"],
             ticket_type="incident",
             account="0958cbc6-6040-430a-848e-aafacbadf4ae",
             contact="65c345ba-6870-4974-87ba-dd31509c367a",
@@ -264,6 +267,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     account_id = "account_id_example" # str | If provided, will only return tickets for this account. (optional)
     assignee_ids = "assignee_ids_example" # str | If provided, will only return tickets assigned to the assignee_ids; multiple assignee_ids can be separated by commas. (optional)
+    collection_ids = "collection_ids_example" # str | If provided, will only return tickets assigned to the collection_ids; multiple collection_ids can be separated by commas. (optional)
     completed_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets completed after this datetime. (optional)
     completed_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets completed before this datetime. (optional)
     contact_id = "contact_id_example" # str | If provided, will only return tickets for this contact. (optional)
@@ -272,7 +276,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     due_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets due after this datetime. (optional)
     due_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets due before this datetime. (optional)
-    expand = "attachments,assignees,project,account,contact,creator,parent_ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "attachments,assignees,collections,project,account,contact,creator,parent_ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -281,8 +285,13 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     parent_ticket_id = "parent_ticket_id_example" # str | If provided, will only return sub tickets of the parent_ticket_id. (optional)
     priority = "HIGH" # str, none_type | If provided, will only return tickets of this priority. (optional)
     project_id = "project_id_example" # str | If provided, will only return tickets for this project. (optional)
-    remote_fields = "status" # str | Which fields should be returned in non-normalized form. (optional) if omitted the server will use the default value of "status"
+    remote_created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets created in the third party platform after this datetime. (optional)
+    remote_created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets created in the third party platform before this datetime. (optional)
+    remote_fields = "priority,status,ticket_type" # str | Deprecated. Use show_enum_origins. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
+    remote_updated_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets updated in the third party platform after this datetime. (optional)
+    remote_updated_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return tickets updated in the third party platform before this datetime. (optional)
+    show_enum_origins = "priority,status,ticket_type" # str | Which fields should be returned in non-normalized form. (optional)
     status = "CLOSED" # str, none_type | If provided, will only return tickets of this status. (optional)
     tags = "tags_example" # str | If provided, will only return tickets matching the tags; multiple tags can be separated by commas. (optional)
     ticket_type = "ticket_type_example" # str, none_type | If provided, will only return tickets of this type. (optional)
@@ -297,7 +306,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.tickets_list(x_account_token, account_id=account_id, assignee_ids=assignee_ids, completed_after=completed_after, completed_before=completed_before, contact_id=contact_id, created_after=created_after, created_before=created_before, cursor=cursor, due_after=due_after, due_before=due_before, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, parent_ticket_id=parent_ticket_id, priority=priority, project_id=project_id, remote_fields=remote_fields, remote_id=remote_id, status=status, tags=tags, ticket_type=ticket_type)
+        api_response = api_instance.tickets_list(x_account_token, account_id=account_id, assignee_ids=assignee_ids, collection_ids=collection_ids, completed_after=completed_after, completed_before=completed_before, contact_id=contact_id, created_after=created_after, created_before=created_before, cursor=cursor, due_after=due_after, due_before=due_before, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, parent_ticket_id=parent_ticket_id, priority=priority, project_id=project_id, remote_created_after=remote_created_after, remote_created_before=remote_created_before, remote_fields=remote_fields, remote_id=remote_id, remote_updated_after=remote_updated_after, remote_updated_before=remote_updated_before, show_enum_origins=show_enum_origins, status=status, tags=tags, ticket_type=ticket_type)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
         print("Exception when calling TicketsApi->tickets_list: %s\n" % e)
@@ -311,6 +320,7 @@ Name | Type | Description  | Notes
  **x_account_token** | **str**| Token identifying the end user. |
  **account_id** | **str**| If provided, will only return tickets for this account. | [optional]
  **assignee_ids** | **str**| If provided, will only return tickets assigned to the assignee_ids; multiple assignee_ids can be separated by commas. | [optional]
+ **collection_ids** | **str**| If provided, will only return tickets assigned to the collection_ids; multiple collection_ids can be separated by commas. | [optional]
  **completed_after** | **datetime, none_type**| If provided, will only return tickets completed after this datetime. | [optional]
  **completed_before** | **datetime, none_type**| If provided, will only return tickets completed before this datetime. | [optional]
  **contact_id** | **str**| If provided, will only return tickets for this contact. | [optional]
@@ -328,8 +338,13 @@ Name | Type | Description  | Notes
  **parent_ticket_id** | **str**| If provided, will only return sub tickets of the parent_ticket_id. | [optional]
  **priority** | **str, none_type**| If provided, will only return tickets of this priority. | [optional]
  **project_id** | **str**| If provided, will only return tickets for this project. | [optional]
- **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional] if omitted the server will use the default value of "status"
+ **remote_created_after** | **datetime, none_type**| If provided, will only return tickets created in the third party platform after this datetime. | [optional]
+ **remote_created_before** | **datetime, none_type**| If provided, will only return tickets created in the third party platform before this datetime. | [optional]
+ **remote_fields** | **str**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
+ **remote_updated_after** | **datetime, none_type**| If provided, will only return tickets updated in the third party platform after this datetime. | [optional]
+ **remote_updated_before** | **datetime, none_type**| If provided, will only return tickets updated in the third party platform before this datetime. | [optional]
+ **show_enum_origins** | **str**| Which fields should be returned in non-normalized form. | [optional]
  **status** | **str, none_type**| If provided, will only return tickets of this status. | [optional]
  **tags** | **str**| If provided, will only return tickets matching the tags; multiple tags can be separated by commas. | [optional]
  **ticket_type** | **str, none_type**| If provided, will only return tickets of this type. | [optional]
@@ -556,6 +571,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
             status=,
             description="Can you please add more integrations? It'll make syncing data much easier!",
             project="fb8c55b6-1cb8-4b4c-9fb6-17924231619d",
+            collections=["fb8c55b6-1cb8-4b4c-9fb6-17924231619d"],
             ticket_type="incident",
             account="0958cbc6-6040-430a-848e-aafacbadf4ae",
             contact="65c345ba-6870-4974-87ba-dd31509c367a",
@@ -664,9 +680,10 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     api_instance = tickets_api.TicketsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    expand = "attachments,assignees,project,account,contact,creator,parent_ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "attachments,assignees,collections,project,account,contact,creator,parent_ticket" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-    remote_fields = "status" # str | Which fields should be returned in non-normalized form. (optional) if omitted the server will use the default value of "status"
+    remote_fields = "priority,status,ticket_type" # str | Deprecated. Use show_enum_origins. (optional)
+    show_enum_origins = "priority,status,ticket_type" # str | Which fields should be returned in non-normalized form. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -678,7 +695,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.tickets_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data, remote_fields=remote_fields)
+        api_response = api_instance.tickets_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data, remote_fields=remote_fields, show_enum_origins=show_enum_origins)
         pprint(api_response)
     except MergeTicketingClient.ApiException as e:
         print("Exception when calling TicketsApi->tickets_retrieve: %s\n" % e)
@@ -693,7 +710,8 @@ Name | Type | Description  | Notes
  **id** | **str**|  |
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional] if omitted the server will use the default value of "status"
+ **remote_fields** | **str**| Deprecated. Use show_enum_origins. | [optional]
+ **show_enum_origins** | **str**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

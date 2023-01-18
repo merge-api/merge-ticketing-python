@@ -11,8 +11,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "merge-ticketing-client"
-VERSION = "1.1.1"
+NAME = "MergeTicketingClient"
+VERSION = "1.1.2"
 # To install the library, run the following
 #
 # python setup.py install

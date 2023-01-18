@@ -307,7 +307,7 @@ class SelectiveSyncApi(object):
 
             Keyword Args:
                 common_model (str): [optional]
-                cursor (int): The pagination cursor value.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -396,7 +396,7 @@ class SelectiveSyncApi(object):
                     'common_model':
                         (str,),
                     'cursor':
-                        (int,),
+                        (str,),
                     'page_size':
                         (int,),
                 },

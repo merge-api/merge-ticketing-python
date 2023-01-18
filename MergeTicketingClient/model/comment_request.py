@@ -81,8 +81,8 @@ class CommentRequest(ModelNormal):
             'ticket': (str, none_type,),  # noqa: E501
             'is_private': (bool, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
-            'integration_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'linked_account_params': ({str: (bool, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -150,11 +150,11 @@ class CommentRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            user (str, none_type): [optional]  # noqa: E501
-            contact (str, none_type): [optional]  # noqa: E501
+            user (str, none_type): The author of the Comment, if the author is a User.. [optional]  # noqa: E501
+            contact (str, none_type): The author of the Comment, if the author is a Contact.. [optional]  # noqa: E501
             body (str, none_type): The comment's text body.. [optional]  # noqa: E501
             html_body (str, none_type): The comment's text body formatted as html.. [optional]  # noqa: E501
-            ticket (str, none_type): [optional]  # noqa: E501
+            ticket (str, none_type): The ticket associated with the comment. . [optional]  # noqa: E501
             is_private (bool, none_type): Whether or not the comment is internal.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's comment was created.. [optional]  # noqa: E501
             integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501

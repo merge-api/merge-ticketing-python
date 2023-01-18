@@ -11,15 +11,15 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeTicketingClient
-from MergeTicketingClient.model.role import Role
-globals()['Role'] = Role
-from MergeTicketingClient.model.paginated_role_list import PaginatedRoleList
+from MergeTicketingClient.model.collection_type_enum import CollectionTypeEnum
+from MergeTicketingClient.api_client import ApiClient
 
 
-class TestPaginatedRoleList(unittest.TestCase):
-    """PaginatedRoleList unit test stubs"""
+class TestCollectionTypeEnum(unittest.TestCase):
+    """CollectionTypeEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,12 +27,13 @@ class TestPaginatedRoleList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testPaginatedRoleList(self):
-        """Test PaginatedRoleList"""
+    def testCollectionTypeEnum(self):
+        """Test CollectionTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = PaginatedRoleList()  # noqa: E501
-        pass
+        # model = CollectionTypeEnum()  # noqa: E501
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

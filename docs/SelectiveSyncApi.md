@@ -213,7 +213,7 @@ with MergeTicketingClient.ApiClient(configuration) as api_client:
     api_instance = selective_sync_api.SelectiveSyncApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     common_model = "common_model_example" # str |  (optional)
-    cursor = 1 # int | The pagination cursor value. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
 
     # example passing only required values which don't have defaults set
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **common_model** | **str**|  | [optional]
- **cursor** | **int**| The pagination cursor value. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
 
 ### Return type
